@@ -6,6 +6,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [totalUsers, setTotalUsers] = useState(0); // Agregamos el estado para el total de contactos
 
   const fetchUsers = useCallback(async (page = 1, limit = 5, query = "") => {
     try {
@@ -14,7 +15,10 @@ export const UserProvider = ({ children }) => {
         `/api/users?_page=${page}&_limit=${limit}&q=${query}`
       );
       const data = await response.json();
-      setUsers(data);
+      // Actualizamos los usuarios y el total de usuarios
+      setUsers(data);  // Asumimos que `data` es una lista de contactos
+      // Si la API no te da el número total de usuarios, podrías hacer un cálculo estimado aquí
+      setTotalUsers(18);  // Ajusta este valor según tu lógica o configuración, debo corregirlo
     } catch (error) {
       console.error("Failed to fetch users", error);
     } finally {
@@ -45,7 +49,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ users, loading, fetchUsers, addUser, deleteUser }}>
+    <UserContext.Provider value={{ users, loading, fetchUsers, addUser, deleteUser, totalUsers }}>
       {children}
     </UserContext.Provider>
   );
