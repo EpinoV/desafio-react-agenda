@@ -22,7 +22,7 @@ const AddUserForm = () => {
   return (
     <form onSubmit={handleSubmit} className="p-4 bg-white shadow-lg rounded-lg">
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Name:</label>
+        <label className="block text-sm font-medium text-gray-700">Nombre:</label>
         <input
           type="text"
           name="name"
@@ -32,7 +32,7 @@ const AddUserForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Description:</label>
+        <label className="block text-sm font-medium text-gray-700">Descripción:</label>
         <input
           type="text"
           name="description"
@@ -42,7 +42,7 @@ const AddUserForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Photo URL:</label>
+        <label className="block text-sm font-medium text-gray-700">URL Imagen:</label>
         <input
           type="text"
           name="photo"

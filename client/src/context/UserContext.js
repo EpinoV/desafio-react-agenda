@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useCallback, useState } from "react";
+import PropTypes from "prop-types";
 
 export const UserContext = createContext();
 
@@ -6,7 +7,7 @@ export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchUsers = async (page = 1, limit = 5, query = "") => {
+  const fetchUsers = useCallback(async (page = 1, limit = 5, query = "") => {
     try {
       setLoading(true);
       const response = await fetch(
@@ -19,7 +20,7 @@ export const UserProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const addUser = async (user) => {
     try {
@@ -48,4 +49,8 @@ export const UserProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

@@ -7,7 +7,7 @@ const UserList = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -15,7 +15,7 @@ const UserList = () => {
   };
 
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this user?")) {
+    if (window.confirm("¿Esta seguro de eliminar este contacto?")) {
       deleteUser(id);
     }
   };
@@ -25,21 +25,21 @@ const UserList = () => {
       <div className="mb-4">
         <input
           type="text"
-          placeholder="Search users..."
+          placeholder="Buscar contactos..."
           value={search}
           onChange={handleSearch}
           className="w-full p-2 border border-gray-300 rounded-lg"
         />
       </div>
       {loading ? (
-        <p className="text-center">Loading...</p>
+        <p className="text-center">Cargando...</p>
       ) : (
         <table className="min-w-full bg-white border border-gray-200 shadow-lg rounded-lg">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Name</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Description</th>
-              <th className="px-6 py-3 text-right text-sm font-medium text-gray-500">Actions</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Nombre</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Descripción</th>
+              <th className="px-6 py-3 text-right text-sm font-medium text-gray-500">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +49,7 @@ const UserList = () => {
                   <img
                     src={user.photo}
                     alt={user.name}
-                    className="w-10 h-10 rounded-full mr-4"
+                    className="w-10 h-10 rounded-full object-cover"
                   />
                   {user.name}
                 </td>
