@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Trash } from "lucide-react";
 import { UserContext } from "../context/UserContext";
 
 const UserList = () => {
-  const { users, loading, fetchUsers, deleteUser, totalUsers } = useContext(UserContext);
+  const { users, loading, fetchUsers, deleteUser, totalUsers  } = useContext(UserContext);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
@@ -21,6 +22,8 @@ const UserList = () => {
       deleteUser(id);
     }
   };
+
+  const defaultPhoto = "https://static.vecteezy.com/system/resources/thumbnails/035/857/753/small/people-face-avatar-icon-cartoon-character-png.png";
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -43,7 +46,7 @@ const UserList = () => {
   }
 
   return (
-    <div className="p-4 bg-gray-100">
+    <div className="p-4 bg-gray-100 min-h-screen">
       <div className="mb-4">
         <input
           type="text"
@@ -67,11 +70,12 @@ const UserList = () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.id} className="border-t border-gray-200 hover:bg-gray-50">
-                <td className="px-6 py-4 text-sm font-medium text-gray-900 flex items-center">
+                <td className="px-6 py-4 text-sm font-medium text-gray-900 flex items-center gap-4">
                   <img
-                    src={user.photo}
+                    src={user.photo || defaultPhoto}
                     alt={user.name}
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="size-10 rounded-full object-cover"
+                    onError={(e) => (e.target.src = defaultPhoto)}
                   />
                   {user.name}
                 </td>
@@ -79,9 +83,10 @@ const UserList = () => {
                 <td className="px-6 py-4 text-right">
                   <button
                     onClick={() => handleDelete(user.id)}
-                    className="px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg"
+                    className="text-red-500 hover:text-red-600"
+                    aria-label="Eliminar contacto"
                   >
-                    Eliminar
+                    <Trash className="size-5" />
                   </button>
                 </td>
               </tr>
@@ -89,7 +94,6 @@ const UserList = () => {
           </tbody>
         </table>
       )}
-
       {/* Paginador */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center space-x-2 mt-4">
@@ -97,7 +101,7 @@ const UserList = () => {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg"
+            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {"<"}
           </button>
@@ -117,7 +121,7 @@ const UserList = () => {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg"
+            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {">"}
           </button>

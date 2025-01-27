@@ -32,14 +32,6 @@ const App = () => {
           <div className="absolute top-4 left-4 cursor-pointer" onClick={closeDrawer}>
             <button className="text-2xl font-bold">×</button>
           </div>
-          <div className="absolute bottom-4 right-4">
-            <button
-              onClick={closeDrawer}
-              className="py-2 px-4 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
-            >
-              Cancelar
-            </button>
-          </div>
         </div>
         <UserList />
       </div>

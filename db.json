@@ -13,18 +13,6 @@
       "photo": "https://images.pexels.com/photos/247917/pexels-photo-247917.jpeg?h=350&auto=compress&cs=tinysrgb"
     },
     {
-      "id": 5,
-      "name": "Ana",
-      "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "photo": "https://images.pexels.com/photos/418870/pexels-photo-418870.jpeg?h=350&auto=compress&cs=tinysrgb"
-    },
-    {
-      "id": 6,
-      "name": "Felipe",
-      "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "photo": "https://images.pexels.com/photos/325682/pexels-photo-325682.jpeg?h=350&auto=compress&cs=tinysrgb"
-    },
-    {
       "id": 7,
       "name": "Francisco",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -91,28 +79,10 @@
       "photo": "https://images.pexels.com/photos/325682/pexels-photo-325682.jpeg?h=350&auto=compress&cs=tinysrgb"
     },
     {
-      "name": "ed",
-      "description": "ed",
-      "photo": "dsdsa",
+      "name": "2",
+      "description": "dsdsa",
+      "photo": "dsdsad",
       "id": 19
-    },
-    {
-      "name": "z",
-      "description": "z",
-      "photo": "z",
-      "id": 20
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "photo": "a",
-      "id": 21
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "photo": "a",
-      "id": 22
     }
   ]
 }
